@@ -4,4 +4,4 @@ Built on top of the Model Context Protocol (MCP), LangChain4j, and Quarkus, this
 
 The assistant exposes a set of specialized tools (e.g., pod discovery, metrics extraction, storage inspection), which an LLM can invoke dynamically through MCP. By decomposing an analytical workflow into fine-grained atomic actions, DrKube showcases how agentic systems can reason about which tools to use and in what order.
 
-You can find the original article about this example project at the following link: 
+You can find the original article about this example project at the following link: [Building Intelligent Kubernetes Assistants with MCP, LangChain4j, and Quarkus](https://fpaparoni.medium.com/building-intelligent-kubernetes-assistants-with-mcp-langchain4j-and-quarkus-8e9055fb9bd6)
