@@ -1,0 +1,29 @@
+services:
+  frontend:
+    build: ./drkube-ui
+    ports:
+      - "8081:80"
+
+  mcp-server:
+    build: ./mcp-server
+    container_name: mcp-server
+    ports:
+      - "8090:8090"
+    restart: unless-stopped
+    volumes:
+      - ~/.kube/config:/root/.kube/config:ro 
+    environment:
+      KUBECONFIG: /root/.kube/config
+
+  query-server:
+    build: ./query-server
+    container_name: query-server
+    ports:
+      - "8091:8091"
+    depends_on:
+      - mcp-server
+    environment:
+      MCP_SERVER_URL: "http://mcp-server:8090/mcp"
+      OPENAI_API_KEY: "YOUR_API_KEY"
+    restart: unless-stopped
+
